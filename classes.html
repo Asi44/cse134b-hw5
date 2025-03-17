@@ -40,66 +40,89 @@
     <h1>Relevant Coursework</h1>
     <p>Some useful classes I have taken:</p>
 
-    <div id="card-container">
-        <class-card 
-            name="CSE 110" 
-            subtitle="Software Engineering"
-            small-img-url="assets/agile-diagram-small.jpg"
-            large-img-url="assets/agile-diagram-large.jpg" 
-            description="This was a really practical class that introduced me to software engineering and Agile methodologies.
-                Working in a group of six, me and my team had to implement an Android app based on provided customer
-                specifications. This class really challenged me to deliver a working project as part of a team."
-            link="https://sites.google.com/ucsd.edu/cse110winter2024/home">
-        </class-card>
-
-        <class-card 
-            name="CSE 120" 
-            subtitle="Principles of Operating Systems"
-            small-img-url="assets/hardware_software_and_operating_system-small.jpg" 
-            large-img-url="assets/hardware_software_and_operating_system-lrg.jpg" 
-            description="This was a challenging class that delved into 
-            the principles of operating systems. Using Nachos and Java, we learnt how to implement key parts of a modern 
-            operating system. It was really interesting to see how these complex systems work at a lower level." 
-            link="https://catalog.ucsd.edu/courses/CSE.html">
-        </class-card>
-
-        <class-card 
-            name="CSE 134B" 
-            subtitle="Web Client Languages"
-            small-img-url="assets/hardware_software_and_operating_system-small.jpg" 
-            large-img-url="assets/hardware_software_and_operating_system-lrg.jpg" 
-            description="I learnt about core web technologies in this class, delving deep into the details of HTML, Javascript 
-            CSS, web standards, frameworks and web components. The main project, creating a personal portfolio website, allowed
-            me to put into practice all of the skills we learnt. " 
-            link="https://catalog.ucsd.edu/courses/CSE.html">
-        </class-card>
-
-        <class-card 
-            name="CSE 127"
-            subtitle="Intro to Computer Security" 
-            small-img-url="assets/hardware_software_and_operating_system-small.jpg" 
-            large-img-url="assets/hardware_software_and_operating_system-lrg.jpg" 
-            description="In this class, we explored a wide range of topics to do with computer security. In order to fully 
-            understand risks that come with software engineering and how to avoid writing dangerous code,
-            this class challenged me to find vulnerabilities in given programs." 
-            link="https://catalog.ucsd.edu/courses/CSE.html">
-        </class-card>
-
-        <class-card 
-            name="CSE 30"
-            subtitle="Computer Organization" 
-            small-img-url="assets/hardware_software_and_operating_system-small.jpg" 
-            large-img-url="assets/hardware_software_and_operating_system-lrg.jpg" 
-            description="This was my favorite lower division class as it gave me a deeper understanding about how
-            modern computers actually work at a lower level. I gained an understanding of the C programming language and 
-            assembly code." 
-            link="https://catalog.ucsd.edu/courses/CSE.html">
-        </class-card>
-
+    <div id = "button-container">
+        <button  onClick="loadRemoteCards()">Load Remote</button>
+        <button  onClick="loadLocalCards()">Load Local</button>
     </div>
+    
+
+    <div id="card-container"></div>
+
+    <script>
+        async function loadRemoteCards() {
+            const cardContainer = document.getElementById('card-container');
+            const url = "https://api.jsonbin.io/v3/b/67d7b43a8a456b7966774a5c";
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`Response status: ${response.status}`);
+                }
+
+                const jsonData = await response.json();
+                classCards = jsonData.record.classCards;
+                localStorage.setItem('classCards', JSON.stringify(classCards)); 
+                console.log(classCards);
+
+                cardContainer.innerHTML = '';
+
+                classCards.forEach(c => {
+                    const classCard = document.createElement('class-card');
+                    classCard.setAttribute('name', c.name);
+                    classCard.setAttribute('subtitle', c.subtitle);
+                    classCard.setAttribute('small-img-url', c.smallImgUrl);
+                    classCard.setAttribute('large-img-url', c.largeImgUrl);
+                    classCard.setAttribute('description', c.description);
+                    classCard.setAttribute('link', c.link);
+                    cardContainer.appendChild(classCard);
+                });
+
+            } catch (error) {
+                console.error(error.message);
+            }
+        };
+
+    </script>
+
+    <script>
+        async function loadLocalCards() {
+
+            const cardContainer = document.getElementById('card-container');
+            cardContainer.innerHTML = '';
+
+            setTimeout(() => {
+                
+                try {
+                    const classCards = JSON.parse(localStorage.getItem('classCards'));
+                    console.log(classCards);
+                    if (!classCards) {
+                        alert("No cards in local storage yet.");
+                    }
+
+                    classCards.forEach(c => {
+                        const classCard = document.createElement('class-card');
+                        classCard.setAttribute('name', c.name);
+                        classCard.setAttribute('subtitle', c.subtitle);
+                        classCard.setAttribute('small-img-url', c.smallImgUrl);
+                        classCard.setAttribute('large-img-url', c.largeImgUrl);
+                        classCard.setAttribute('description', c.description);
+                        classCard.setAttribute('link', c.link);
+                        cardContainer.appendChild(classCard);
+                    });
+
+                } catch(error) {
+                    console.error(error.message);
+                }
+
+            }, 500);
+
+        };
+            
+    </script>
+
 
     <footer>
-        <address>This site was created by Aasiyah Shaikh. &copy; 2025</address>  
+        <address>This site was created by Aasiyah Shaikh. &copy; 2025</address>
     </footer>
 
 
