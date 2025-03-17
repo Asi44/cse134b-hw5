@@ -6,7 +6,7 @@
 
 h1 {
     font-size: 4rem;
-    margin: 2rem 0.5rem 2rem 0.5rem;
+    margin: var(--margin-size) 0.5rem;
     padding: 0.2rem;
     text-align: center;
     color: var(--main-text-color);
@@ -156,7 +156,7 @@ footer {
 
 @media (max-width: 932px) {
     h1 {
-        margin:1rem;
+        margin: var(--margin-size);
         font-size:3rem;
     }
 }
@@ -164,7 +164,7 @@ footer {
 @media (max-width: 380px) {
     h1 {
         font-size: 2rem;
-        margin:1rem;
+        margin: var(--margin-size);
 
     }
 

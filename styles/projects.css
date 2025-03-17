@@ -6,7 +6,7 @@
 
 h1 {
     font-size: 4rem;
-    margin: 2rem 0.5rem 2rem 0.5rem;
+    margin: var(--margin-size) 0.5rem;
     padding: 0.2rem;
     text-align: center;
     color: var(--main-text-color);
@@ -29,7 +29,7 @@ project-card {
     display: block;
     background: #fff;
     padding: 2rem;
-    margin: 1rem 0;
+    margin: var(--margin-size) 0;
     border-radius: 25px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     width: 500px;
@@ -51,7 +51,7 @@ project-card img {
 
 project-card p {
     color: var(--accent-grey);
-    margin: 1rem 0rem 1rem 0rem;
+    margin: var(--margin-size) 0rem;
     font-size: 1.1rem;
     font-family: Inter, sans-serif;
     line-height: 200%;
