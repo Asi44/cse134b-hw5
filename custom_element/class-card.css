@@ -1,0 +1,52 @@
+class-card {
+    background: var(--secondary-bg-color);
+    padding: 2rem;
+    margin: 2rem;
+    border-radius: 25px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 350px;
+}
+
+class-card p{
+    font-style: normal;
+    text-align: left;
+    font-size: 1rem;
+    color: var(--main-text-color);
+    margin: 1rem 0rem;
+    font-family: Inter, sans-serif;
+    line-height: 200%;
+}
+
+class-card h2 {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    margin-bottom: 1rem;
+    color: var(--main-text-color);
+}
+
+class-card h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: lighter;
+    color: var(--accent-color-pink)
+}
+
+class-card img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+
+
+class-card a {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--accent-color-pink);
+    text-decoration: none;
+}
+
+class-card a:hover {
+    text-decoration: underline;
+}

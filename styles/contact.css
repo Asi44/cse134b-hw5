@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 4rem;
+    margin: 2rem 0.5rem 2rem 0.5rem;
+    padding: 0.2rem;
+    text-align: center;
+    color: var(--main-text-color);
+   
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 6rem;
+    align-items: center;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    margin-bottom: 4rem;
+}
+
+aside {
+    flex: 20%;
+    background: var(--accent-purple);
+    padding: 2rem;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    color:white;
+}
+
+aside h3 {
+    margin-top: 10px;
+}
+
+
+aside img {
+    width: 40px;
+}
+
+aside details {
+    margin-top: 10px;
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+form.notebook-paper {
+    flex: 70%;
+    background: repeating-linear-gradient(
+        white 0px, 
+        white 24px, 
+        #b0d0ff 25px
+    ); /* Notebook-style background */
+    line-height: 25px;
+    padding: 20px;
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+    border: 2px solid #4a90e2;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+legend {
+    font-weight: bold;
+    color: #4a90e2;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    animation-name: flash;
+    animation-duration: 4s;
+    outline: none;
+}
+
+output {
+    display: block;
+}
+
+input:focus {
+    outline: none;
+}
+
+@keyframes flash {
+    from {border: solid 2px #ccc;}
+    to {border-color: solid 2px red;}
+  }
+
+#errors {
+    color:red;
+    font-weight: bold;
+}
+
+#errorOutput {
+    color:red;
+    opacity: 1; 
+    transition: opacity 1s ease-out; 
+}
+
+#info {
+    color:green;
+    font-weight: bold;
+}
+
+.submitButton {
+    font-family: Inter, sans-serif;;
+    background: #861388;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 25px;
+    display: block;
+    margin: 15px auto 0;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #630e64;
+    transform: scale(1.05);
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--accent-color-pink, fuchsia);
+    color: white;
+    margin-top: 1rem;
+}
+
+@media (max-width: 932px) {
+    h1 {
+        margin:1rem;
+        font-size:3rem;
+    }
+}
+
+@media (max-width: 380px) {
+    h1 {
+        font-size: 2rem;
+        margin:1rem;
+
+    }
+
+}

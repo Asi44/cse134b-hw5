@@ -1,0 +1,120 @@
+:root {
+    --main-bg-color: #ffe4ff;
+    --secondary-bg-color: white;
+    --accent-color-pink: #ff4cb2;
+    --accent-purple: #861388;
+    --accent-dark-purple: #620e63;
+    --main-text-color: rgb(77, 77, 77);
+}
+
+
+[data-theme="dark"] {
+    --main-bg-color: #1a1a1a;
+    --secondary-bg-color: #360737;
+    --accent-color-pink: #b1196f;
+    --accent-purple: #9b5e9c;
+    --accent-dark-purple: #620e63;
+    --main-text-color: rgb(200, 200, 200);
+}
+
+body {
+    font-display: swap;
+    font-family: Inter, sans-serif;
+    background-color: var(--main-bg-color, silver);
+}
+
+header {
+    background-color: var(--accent-color-pink, fuchsia);
+    padding: 1.2rem;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
+    padding: 0.5rem;
+}
+
+
+nav ul li a {
+    color: var(--main-text-color, grey);
+    text-decoration: none;
+    background: var(--secondary-bg-color); 
+    border-radius: 25px;
+    font-size: 1.3rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    transition: all 0.3s ease-in-out;
+    
+}
+
+nav ul li a:hover {
+    padding: 0.6rem 1.2rem 0.6rem 1.2rem;
+    background: var(--main-bg-color, silver); 
+}
+
+/*show mobile menu on smaller screen*/
+@media only screen and (max-width: 767px) {
+    #mobile-menu {
+        display: block; 
+    }
+    #full-screen-menu {
+        display: none; 
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #mobile-menu {
+        display: none; 
+    }
+    #full-screen-menu {
+        display: block; 
+    }
+}
+
+details {
+    color: white;
+    font-family: Inter, sans-serif;
+    font-weight: bold;
+}
+  
+details > summary {
+    font-size: 1.5rem;
+    text-align: left;
+    padding: 2px 6px;
+    cursor: pointer;
+}
+  
+details > nav ul{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+details > nav ul li a{
+    font-size: 1rem;
+    color:white;
+    background-color: var(--accent-color-pink);
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--accent-color-pink, fuchsia);
+    color: white;
+    margin-top: auto;
+}
+
+#toggleButton {
+    background-color: var(--main-text-color, grey); 
+    border-radius: 25px;
+    padding:1rem;
+}
+

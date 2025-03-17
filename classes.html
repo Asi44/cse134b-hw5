@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relevant Classes</title>
+    <script src="./custom_element/class-card-component.js"></script>
+    <link rel="stylesheet" href="styles/classes.css">
+    <link rel="stylesheet" href="custom_element/class-card.css">
+    <link rel="stylesheet" href="styles/global.css">
+</head>
+
+<body>
+
+    <header>
+        <nav id="full-screen-menu">
+            <ul>
+                <li><a href="index.html">about</a></li>
+                <li><a href="projects.html">projects</a></li>
+                <li><a href="classes.html">classes</a></li>
+                <li><a href="contact.html">contact</a></li>
+            </ul>
+        </nav>
+
+        <details>
+            <summary id="mobile-menu"><img src="./assets/hamburger (1).png" width="40px"></summary>
+            <nav>
+                <ul>
+                    <li><a href="index.html">about</a></li>
+                    <li><a href="projects.html">projects</a></li>
+                    <li><a href="classes.html">classes</a></li>
+                    <li><a href="contact.html">contact</a></li>
+                </ul>
+            </nav>
+        </details>
+
+    </header>
+
+    <h1>Relevant Coursework</h1>
+    <p>Some useful classes I have taken:</p>
+
+    <div id="card-container">
+        <class-card 
+            name="CSE 110" 
+            subtitle="Software Engineering"
+            small-img-url="assets/agile-diagram-small.jpg"
+            large-img-url="assets/agile-diagram-large.jpg" 
+            description="This was a really practical class that introduced me to software engineering and Agile methodologies.
+                Working in a group of six, me and my team had to implement an Android app based on provided customer
+                specifications. This class really challenged me to deliver a working project as part of a team."
+            link="https://sites.google.com/ucsd.edu/cse110winter2024/home">
+        </class-card>
+
+        <class-card 
+            name="CSE 120" 
+            subtitle="Principles of Operating Systems"
+            small-img-url="assets/hardware_software_and_operating_system-small.jpg" 
+            large-img-url="assets/hardware_software_and_operating_system-lrg.jpg" 
+            description="This was a challenging class that delved into 
+            the principles of operating systems. Using Nachos and Java, we learnt how to implement key parts of a modern 
+            operating system. It was really interesting to see how these complex systems work at a lower level." 
+            link="https://catalog.ucsd.edu/courses/CSE.html">
+        </class-card>
+
+        <class-card 
+            name="CSE 134B" 
+            subtitle="Web Client Languages"
+            small-img-url="assets/hardware_software_and_operating_system-small.jpg" 
+            large-img-url="assets/hardware_software_and_operating_system-lrg.jpg" 
+            description="I learnt about core web technologies in this class, delving deep into the details of HTML, Javascript 
+            CSS, web standards, frameworks and web components. The main project, creating a personal portfolio website, allowed
+            me to put into practice all of the skills we learnt. " 
+            link="https://catalog.ucsd.edu/courses/CSE.html">
+        </class-card>
+
+        <class-card 
+            name="CSE 127"
+            subtitle="Intro to Computer Security" 
+            small-img-url="assets/hardware_software_and_operating_system-small.jpg" 
+            large-img-url="assets/hardware_software_and_operating_system-lrg.jpg" 
+            description="In this class, we explored a wide range of topics to do with computer security. In order to fully 
+            understand risks that come with software engineering and how to avoid writing dangerous code,
+            this class challenged me to find vulnerabilities in given programs." 
+            link="https://catalog.ucsd.edu/courses/CSE.html">
+        </class-card>
+
+        <class-card 
+            name="CSE 30"
+            subtitle="Computer Organization" 
+            small-img-url="assets/hardware_software_and_operating_system-small.jpg" 
+            large-img-url="assets/hardware_software_and_operating_system-lrg.jpg" 
+            description="This was my favorite lower division class as it gave me a deeper understanding about how
+            modern computers actually work at a lower level. I gained an understanding of the C programming language and 
+            assembly code." 
+            link="https://catalog.ucsd.edu/courses/CSE.html">
+        </class-card>
+
+    </div>
+
+    <footer>
+        <address>This site was created by Aasiyah Shaikh. &copy; 2025</address>  
+    </footer>
+
+
+</body>
+
+</html>
