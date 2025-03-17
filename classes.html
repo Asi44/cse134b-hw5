@@ -37,67 +37,35 @@
 
     </header>
 
-    <h1>Relevant Coursework</h1>
-    <p>Some useful classes I have taken:</p>
+    <main>
+        <h1>Relevant Coursework</h1>
+        <p>Some useful classes I have taken:</p>
 
-    <div id = "button-container">
-        <button  onClick="loadRemoteCards()">Load Remote</button>
-        <button  onClick="loadLocalCards()">Load Local</button>
-    </div>
-    
+        <div id="button-container">
+            <button onClick="loadRemoteCards()">Load Remote</button>
+            <button onClick="loadLocalCards()">Load Local</button>
+        </div>
 
-    <div id="card-container"></div>
 
-    <script>
-        async function loadRemoteCards() {
-            const cardContainer = document.getElementById('card-container');
-            const url = "https://api.jsonbin.io/v3/b/67d7b43a8a456b7966774a5c";
+        <div id="card-container"></div>
 
-            try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`Response status: ${response.status}`);
-                }
+        <script>
+            async function loadRemoteCards() {
+                const cardContainer = document.getElementById('card-container');
+                const url = "https://api.jsonbin.io/v3/b/67d7b43a8a456b7966774a5c";
 
-                const jsonData = await response.json();
-                classCards = jsonData.record.classCards;
-                localStorage.setItem('classCards', JSON.stringify(classCards)); 
-                console.log(classCards);
-
-                cardContainer.innerHTML = '';
-
-                classCards.forEach(c => {
-                    const classCard = document.createElement('class-card');
-                    classCard.setAttribute('name', c.name);
-                    classCard.setAttribute('subtitle', c.subtitle);
-                    classCard.setAttribute('small-img-url', c.smallImgUrl);
-                    classCard.setAttribute('large-img-url', c.largeImgUrl);
-                    classCard.setAttribute('description', c.description);
-                    classCard.setAttribute('link', c.link);
-                    cardContainer.appendChild(classCard);
-                });
-
-            } catch (error) {
-                console.error(error.message);
-            }
-        };
-
-    </script>
-
-    <script>
-        async function loadLocalCards() {
-
-            const cardContainer = document.getElementById('card-container');
-            cardContainer.innerHTML = '';
-
-            setTimeout(() => {
-                
                 try {
-                    const classCards = JSON.parse(localStorage.getItem('classCards'));
-                    console.log(classCards);
-                    if (!classCards) {
-                        alert("No cards in local storage yet.");
+                    const response = await fetch(url);
+                    if (!response.ok) {
+                        throw new Error(`Response status: ${response.status}`);
                     }
+
+                    const jsonData = await response.json();
+                    classCards = jsonData.record.classCards;
+                    localStorage.setItem('classCards', JSON.stringify(classCards));
+                    console.log(classCards);
+
+                    cardContainer.innerHTML = '';
 
                     classCards.forEach(c => {
                         const classCard = document.createElement('class-card');
@@ -110,16 +78,49 @@
                         cardContainer.appendChild(classCard);
                     });
 
-                } catch(error) {
+                } catch (error) {
                     console.error(error.message);
                 }
+            };
 
-            }, 500);
+        </script>
 
-        };
-            
-    </script>
+        <script>
+            async function loadLocalCards() {
 
+                const cardContainer = document.getElementById('card-container');
+                cardContainer.innerHTML = '';
+
+                setTimeout(() => {
+
+                    try {
+                        const classCards = JSON.parse(localStorage.getItem('classCards'));
+                        console.log(classCards);
+                        if (!classCards) {
+                            alert("No cards in local storage yet.");
+                        }
+
+                        classCards.forEach(c => {
+                            const classCard = document.createElement('class-card');
+                            classCard.setAttribute('name', c.name);
+                            classCard.setAttribute('subtitle', c.subtitle);
+                            classCard.setAttribute('small-img-url', c.smallImgUrl);
+                            classCard.setAttribute('large-img-url', c.largeImgUrl);
+                            classCard.setAttribute('description', c.description);
+                            classCard.setAttribute('link', c.link);
+                            cardContainer.appendChild(classCard);
+                        });
+
+                    } catch (error) {
+                        console.error(error.message);
+                    }
+
+                }, 500);
+
+            };
+
+        </script>
+    </main>
 
     <footer>
         <address>This site was created by Aasiyah Shaikh. &copy; 2025</address>
