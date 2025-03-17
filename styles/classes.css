@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+main {
+    min-height: 70vh;
+}
+
 #card-container {
     display: flex;
     flex-wrap: wrap;
